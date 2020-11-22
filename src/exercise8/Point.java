@@ -1,14 +1,12 @@
 package exercise8;
 
-import java.util.Scanner;
-
 public class Point {
     double x;
     double y;
 
     public Point() {
-       x=0.0;
-       y=0.0;
+        this.x=0;
+        this.y=0;
     }
 
     public Point(double x, double y) {
@@ -17,36 +15,41 @@ public class Point {
     }
 
     public Point(Point otherPoint) {
-        x=otherPoint.x;
-        y=otherPoint.y;
+        this.x= otherPoint.x;
+        this.y= otherPoint.y;
     }
 
     public void initialize() {
-      System.out.print("Enter x: ");
-        x = Utils.INPUT.nextDouble();
-        System.out.print("Enter y: ");
-        y= Utils.INPUT.nextDouble();
+
+        System.out.println("x: ");
+        double x = Utils.INPUT.nextDouble();
+        System.out.println("y: ");
+        double y = Utils.INPUT.nextDouble();
+
+        this.x=x;
+        this.y=y;
+
     }
 
     public void translate(double xDelta, double yDelta) {
-        x= x + xDelta;
-        y= y + yDelta;
+        this.x=this.x+xDelta;
+        this.y=this.y+yDelta;
     }
 
     public Point createNewTranslatedPoint(double xDelta, double yDelta) {
-        double newX = x+ xDelta;
+        double newX = x + xDelta;
         double newY = y + yDelta;
-        return new Point(newX,newY);
+        return new Point(newX , newY);
     }
 
     public boolean equals(Point otherPoint) {
-       boolean xEqual = x == otherPoint.x;
-       boolean yEqual = x == otherPoint.y;
+        boolean xEqual = x == otherPoint.x;
+        boolean yEqual = y == otherPoint.y;
         return xEqual && yEqual;
     }
 
     public String toString() {
-       
-        return "(" + x + ", " + y + ")";
+
+      return "(" + x + ", " + y + ")";
     }
 }
